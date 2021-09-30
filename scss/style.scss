@@ -1,0 +1,90 @@
+@import "./resets";
+@import "./variables";
+@mixin flexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+};
+.title {
+    text-align: center;
+    margin-top: 2rem;
+    color: $white;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+.container {
+    @include flexBetween();
+    margin:2rem;
+    .icon img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    .input {
+        width: 30%;
+        .search{
+            width: 100%;
+            padding: 0.5rem 0.3rem;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            border-bottom: 2px solid $black;
+        }
+    }
+}
+.image {
+    margin: 1rem;
+    position: relative;
+    img{
+        width:400px;
+        border-radius: 10px;
+    }
+    }
+.texts {
+        position: absolute;
+        right: 0;
+        max-height: 100%;
+        padding: 10px;
+        left: 0;
+        bottom: 0;
+        background: $white;
+        overflow-y: scroll;
+        display: none;
+        width: 400px;
+        transform: translateY(100%);
+}
+.image:hover .texts{
+    transform: translateY(0);
+    display: block;
+}
+.meal {
+    padding: 10px;
+}
+@media(max-width:$mobile) {
+    .main {
+        display: block;
+        overflow: hidden;
+    }
+    .texts {
+        width:300px;
+        font-size: 15px;
+    }
+    .image {
+        margin: 0.5rem;
+    }
+    .image img {
+        width: 300px;
+    }
+}
